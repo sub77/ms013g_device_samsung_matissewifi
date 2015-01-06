@@ -15,7 +15,7 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),ms013g)
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
+include $(call all-makefiles-under,$(LOCAL_PATH))
 
 ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 \
