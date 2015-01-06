@@ -71,7 +71,7 @@ ro.qc.sdk.izat.service_mask=0x0
 
 # Qualcomm
 persist.timed.enable=true
-qcom.hw.aac.encoder=true
+media.stagefright.use-awesome=true
 ro.qualcomm.cabl=0
 ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
 

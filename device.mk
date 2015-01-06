@@ -57,7 +57,6 @@ PRODUCT_PACKAGES += \
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
@@ -89,11 +88,11 @@ PRODUCT_PACKAGES += \
     libebtc
 
 # FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    FMRecord \
-    libqcomfm_jni \
-    qcom.fmradio
+#PRODUCT_PACKAGES += \
+#    FM2 \
+#    FMRecord \
+#    libqcomfm_jni \
+#    qcom.fmradio
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -106,6 +105,8 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/Button_Jack.kl:system/usr/Button_Jack.kl \
+    $(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/sec_touchkey.kl \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl \
     $(LOCAL_PATH)/keylayout/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc \
@@ -113,8 +114,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc
 
 # Keystore
-PRODUCT_PACKAGES += \
-    keystore.msm8226
+#PRODUCT_PACKAGES += \
+#    keystore.msm8226
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -122,6 +123,10 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
@@ -176,9 +181,9 @@ PRODUCT_PACKAGES += \
     power.msm8226
 
 # QRNG
-PRODUCT_PACKAGES += \
-    qrngd \
-    qrngp
+#PRODUCT_PACKAGES += \
+#    qrngd \
+#    qrngp
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -212,9 +217,12 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
+    dhcpcd.conf \
+    hostapd_default.conf \
     hostapd.accept \
     hostapd.deny \
-    hostapd_default.conf
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
