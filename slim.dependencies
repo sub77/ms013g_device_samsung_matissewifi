@@ -1,0 +1,10 @@
+[
+	{
+		"repository": "SlimRoms/device_qcom_common",
+		"target_path": "device/qcom/common"
+	},
+	{
+		"repository": "aapav01/device_samsung_qcom-common",
+		"target_path": "device/samsung/qcom-common"
+	}
+]
