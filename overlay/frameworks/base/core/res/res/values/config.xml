@@ -19,6 +19,17 @@
 
 <resources>
 
+    <!-- Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
+
+    <!-- Whether UI for multi user should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
+    <bool name="config_deskDockEnablesAccelerometer">false</bool>
+
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
          (1-based arrays)
@@ -89,6 +100,7 @@
         <item>0</item>
     </integer-array>
 
+<<<<<<< HEAD
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
@@ -104,6 +116,8 @@
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
          based on the hardware -->
+=======
+>>>>>>> 5aba095... ms013g: Overlay Slim
     <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
          [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
     <!-- the 5th element "resore-time" indicates the number of milliseconds to delay
@@ -163,6 +177,7 @@
         <item>7</item>
     </integer-array>
 
+<<<<<<< HEAD
     <!-- Control whether being in the desk dock should enable accelerometer
          based screen orientation.  This defaults to true because it is
          common for desk docks to be sold in a variety of form factors
@@ -177,6 +192,8 @@
     <!-- Device supports LED flashlight -->
     <bool name="config_enableTorch">true</bool>
 
+=======
+>>>>>>> 5aba095... ms013g: Overlay Slim
     <!-- Boolean indicating whether Softap requires reloading AP firmware -->
     <bool name="config_wifiApFirmwareReload">false</bool>
 
@@ -197,6 +214,7 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 
+<<<<<<< HEAD
     <!-- Hardware 'face' keys present on the device, stored as a bit field.
         This integer should equal the sum of the corresponding value for each
         of the following keys present:
@@ -210,6 +228,8 @@
         config to 7. -->
     <integer name="config_deviceHardwareKeys">7</integer>
 
+=======
+>>>>>>> 5aba095... ms013g: Overlay Slim
     <!-- Is the device capable of hot swapping an UICC Card -->
     <bool name="config_hotswapCapable">true</bool>
 
@@ -217,7 +237,10 @@
     <!-- The restoring is handled by modem if it is true-->
     <bool name="skip_restoring_network_selection">true</bool>
 
+<<<<<<< HEAD
    <!-- Performance profiles -->
     <string name="config_perf_profile_prop">sys.perf.profile</string>
     <string name="config_perf_profile_default_entry">1</string>
+=======
+>>>>>>> 5aba095... ms013g: Overlay Slim
 </resources>
