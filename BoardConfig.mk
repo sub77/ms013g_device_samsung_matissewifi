@@ -12,18 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Inherit from qcom-common
+-include device/samsung/qcom-common/BoardConfigCommon.mk
+
 LOCAL_PATH := device/samsung/ms013g
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/ms013g/include
 
-TARGET_OTA_ASSERT_DEVICE := ms013g,ms013gxx
+TARGET_OTA_ASSERT_DEVICE := ms013g
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 TARGET_NO_BOOTLOADER := true
-
-# Inherit from qcom-common
--include device/samsung/qcom-common/BoardConfigCommon.mk
 
 # Architecture
 TARGET_CPU_VARIANT := krait
@@ -111,7 +111,7 @@ TARGET_POWERHAL_VARIANT := qcom
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+#COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
