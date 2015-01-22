@@ -4,7 +4,7 @@
 		"target_path": "device/qcom/common"
 	},
 	{
-		"repository": "aapav01/device_samsung_qcom-common",
+		"repository": "sub77/ms013g_samsung_qcom-common",
 		"target_path": "device/samsung/qcom-common"
 	}
 ]
