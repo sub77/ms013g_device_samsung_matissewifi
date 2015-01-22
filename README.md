@@ -1,4 +1,4 @@
-Device Tree For Samsung Galaxy Grand 2
+Device Tree For Samsung Galaxy Tab 4 10.1
 ===================================== 
 
 Basic   | Spec Sheet
