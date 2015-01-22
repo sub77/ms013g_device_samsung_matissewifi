@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/ms013g
+LOCAL_PATH := device/samsung/matissewifi
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/ms013g/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/matissewifi/include
 
-TARGET_OTA_ASSERT_DEVICE := ms013g
+TARGET_OTA_ASSERT_DEVICE := matissewifi
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
@@ -30,7 +30,7 @@ TARGET_CPU_VARIANT := krait
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
-TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_QCOM_AUDIO_VARIANT := 
 AUDIO_FEATURE_DISABLED_ANC_HEADSET := true
 AUDIO_FEATURE_DISABLED_MULTI_VOICE_SESSIONS := true
 #HAVE_HTC_AUDIO_DRIVER := true
@@ -59,12 +59,12 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 
 # Custom RIL class
-BOARD_RIL_CLASS := ../../../device/samsung/ms013g/ril/
+B# OARD_RIL_CLASS := ../../../device/samsung/matissewifi/ril/
 
 # Display
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-TARGET_QCOM_DISPLAY_VARIANT := caf-new
+TARGET_QCOM_DISPLAY_VARIANT := caf
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_NO_INITLOGO := true
 
@@ -73,7 +73,7 @@ TARGET_HW_DISK_ENCRYPTION := true
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_ms013g.c
+TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_matissewifi.c
 TARGET_UNIFIED_DEVICE := true
 
 # Kernel
@@ -83,9 +83,9 @@ BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardwa
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
-TARGET_KERNEL_SOURCE := kernel/samsung/ms013g
+TARGET_KERNEL_SOURCE := kernel/samsung/matissewifi
 TARGET_KERNEL_CONFIG := msm8226-sec_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8226-sec_ms013g_eur_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8226-sec_matissewifi_eur_defconfig
 
 WLAN_MODULES:
 	mkdir -p $(KERNEL_MODULES_OUT)/pronto
@@ -99,7 +99,7 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Media
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
-TARGET_QCOM_MEDIA_VARIANT := caf-new
+TARGET_QCOM_MEDIA_VARIANT := caf
 
 
 # Partitions

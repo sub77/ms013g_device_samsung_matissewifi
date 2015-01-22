@@ -54,23 +54,19 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.bootloader", bootloader);
 
-    if (strstr(bootloader, "G7105")) {
-        /* ms01lte */
-        property_set("ro.build.fingerprint", "samsung/ms01ltexx/ms01lte:4.4.2/KOT49H/G7105XXUBNI2:user/release-keys");
-        property_set("ro.build.description", "ms01ltexx-user 4.4.2 KOT49H G7105XXUBNI2 release-keys");
-        property_set("ro.product.model", "SM-G7105");
-        property_set("ro.product.device", "ms01lte");
-        property_set("ro.telephony.ril_class", "SamsungMSM8226RIL");
+    if (strstr(bootloader, "T535")) {
+        /* matisselte */
+        property_set("ro.build.fingerprint", "samsung/matisseltexx/matisselte:4.4.2/KOT49H/G7105XXUBNI2:user/release-keys");
+        property_set("ro.build.description", "matisseltexx-user 4.4.2 KOT49H G7105XXUBNI2 release-keys");
+        property_set("ro.product.model", "SM-T535");
+        property_set("ro.product.device", "matisselte");
         gsm_properties();
-    } else if (strstr(bootloader, "G7102")) {
-        /* ms013g */
-        property_set("ro.build.fingerprint", "samsung/ms013gxx/ms013g:4.4.2/KOT49H/G7102XXUBNG4:user/release-keys");
-        property_set("ro.build.description", "ms013gxx-user 4.4.2 KOT49H G7102XXUBNG4 release-keys");
-        property_set("ro.product.model", "SM-G7102");
-        property_set("ro.product.device", "ms013g");
-        property_set("persist.dsds.enabled", "true");
-        property_set("persist.radio.multisim.config", "dsds");
-        property_set("ro.telephony.ril_class", "SamsungMSM8226DSRIL");
+    } else if (strstr(bootloader, "T530")) {
+        /* matissewifi */
+        property_set("ro.build.fingerprint", "samsung/matissewifixx/matissewifi:4.4.2/KOT49H/G7102XXUBNG4:user/release-keys");
+        property_set("ro.build.description", "matissewifixx-user 4.4.2 KOT49H G7102XXUBNG4 release-keys");
+        property_set("ro.product.model", "SM-T530");
+        property_set("ro.product.device", "matissewifi");
         gsm_properties();
     }
 
