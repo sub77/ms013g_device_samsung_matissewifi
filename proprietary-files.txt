@@ -36,9 +36,9 @@ vendor/lib/liboi_sbc_decoder.so
 bin/mm-qcamera-daemon
 lib/hw/camera.msm8226.so
 lib/libarcsoft_flawlessface.so
-lib/libarcsoft_night_shot.so
+#lib/libarcsoft_night_shot.so
 lib/libarcsoft_panorama_burstcapture.so
-lib/libarcsoft_picaction.so
+#lib/libarcsoft_picaction.so
 lib/libarcsoft_sensorndk.so
 lib/libarcsoft_skin_soften.so
 lib/libmmcamera_cac.so
@@ -87,16 +87,11 @@ lib/E08QL_libTsAf.so
 lib/E08QL_libTs_J_Accm.so
 lib/E08QL_libTs_J_Awb.so
 lib/libAfSingle.so
+
 lib/libchromatix_s5k6a3yx_smart_stay.so
-lib/libchromatix_s5k6b2yx_preview.so
 lib/libchromatix_s5k6a3yx_vt_hd.so
-lib/libchromatix_s5k6b2yx_smart_stay.so
 lib/libchromatix_s5k6a3yx_vt.so
-lib/libchromatix_s5k6b2yx_vt_hd.so
-lib/libchromatix_s5k6b2yx_common.so
-lib/libchromatix_s5k6b2yx_vt.so
-lib/libchromatix_s5k6b2yx_default_video.so
-lib/libchromatix_s5k6b2yx_zslshot.so
+
 lib/libTsAe.so
 lib/libTsAf.so
 lib/libTs_J_Accm.so
@@ -120,7 +115,7 @@ vendor/lib/libchromatix_imx219_default_video.so
 vendor/lib/B08QT_libchromatix_imx175_video_hd.so
 vendor/lib/libchromatix_imx219_liveshot.so
 vendor/lib/B08QT_libchromatix_imx175_zslshot.so 
-vendor/lib/libchromatix_imx219_panorama.so
+#vendor/lib/libchromatix_imx219_panorama.so
 vendor/lib/B08QT_libchromatix_imx175_zsl.so  
 vendor/lib/libchromatix_imx219_preview.so
 vendor/lib/C08QT_libchromatix_imx175_common_res0.so
@@ -227,6 +222,17 @@ etc/firmware/a300_pm4.fw
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
+etc/firmware/a225p5_pm4.fw
+etc/firmware/a225_pfp.fw
+etc/firmware/a225_pm4.fw
+etc/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+
+
+
 # IPC router security
 bin/irsc_util
 etc/sec_config
@@ -292,17 +298,17 @@ lib/libomission_avoidance.so
 lib/libreference-ril.so
 lib/libsecnativefeature.so
 lib/libsecril-client.so
-lib/libsec-ril.so
-lib/libsec-ril-dsds.so
+#lib/libsec-ril.so
+#lib/libsec-ril-dsds.so
 lib/libril.so
 vendor/lib/libconfigdb.so
-vendor/lib/libril-qcril-hook-oem.so
+#vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/libxml.so
 lib/librilutils.so
 
 # Sensors
 bin/sensors.qcom
-vendor/lib/hw/sensors.msm8226.so
+lib/hw/sensors.msm8226.so
 #lib/libyasalgo.so
 vendor/lib/libsensor1.so
 etc/sensor_def_qcomdev.conf
