@@ -39,8 +39,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=2m \
     dalvik.vm.heapmaxfree=8m
 
-
-
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
@@ -70,11 +68,11 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # CRDA
-#PRODUCT_PACKAGES += \
-#    crda \
-#    linville.key.pub.pem \
-#    regdbdump \
-#    regulatory.bin
+PRODUCT_PACKAGES += \
+    crda \
+    linville.key.pub.pem \
+    regdbdump \
+    regulatory.bin
 
 # Display
 PRODUCT_PACKAGES += \
@@ -114,6 +112,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sec_keyboard.idc:system/usr/idc/sec_keyboard.idc \
     $(LOCAL_PATH)/keylayout/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc
 
+<<<<<<< HEAD
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/cyttsp-i2c.kl:system/usr/keylayout/cyttsp-i2c.kl \
@@ -126,13 +125,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
     $(LOCAL_PATH)/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
 
+=======
+>>>>>>> parent of c0c8e49... audio / gpio config
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8226
 
 # Lights
-#PRODUCT_PACKAGES += \
-#    lights.msm8226
+PRODUCT_PACKAGES += \
+    lights.msm8226
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -174,6 +175,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
@@ -181,7 +184,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
-    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 # Power
 PRODUCT_PACKAGES += \
@@ -212,38 +215,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
 # Torch
-#PRODUCT_PACKAGES += \
-#    Torch
+PRODUCT_PACKAGES += \
+    Torch
 
-# System properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.resampler.quality=4 \
-    audio.offload.buffer.size.kb=32 \
-    audio.offload.gapless.enabled=false \
-    av.offload.enable=true \
-    qcom.hw.aac.encoder=true
-
-# Display
-PRODUCT_PROPERTY_OVERRIDES += \
-	debug.composition.type=c2d \
-	debug.egl.hw=1 \
-	debug.enabletr=0 \
-	debug.mdpcomp.logs=0 \
-	debug.sf.hw=1 \
-	persist.hwc.mdpcomp.enable=true \
-	ro.sf.lcd_density=160
-
-# Qualcomm
-PRODUCT_PROPERTY_OVERRIDES += \
-	com.qc.hardware=true \
-	persist.timed.enable=true \
-	qcom.hw.aac.encoder=true \
-	ro.qualcomm.cabl=0
-
-# Default.prop overrides to get adb working at boot
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.secure=0 \
-    ro.adb.secure=0 \
+# USB
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
 PRODUCT_PACKAGES += \
@@ -262,8 +238,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcurl \
     libqsap_sdk \
-    libQWiFiSoftApCfg 
-#    wcnss_service
+    libQWiFiSoftApCfg \
+    wcnss_service
 
 PRODUCT_COPY_FILES += \
     kernel/samsung/matissewifi/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
