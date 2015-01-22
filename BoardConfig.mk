@@ -59,7 +59,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 
 # Custom RIL class
-B# OARD_RIL_CLASS := ../../../device/samsung/matissewifi/ril/
+#BOARD_RIL_CLASS := ../../../device/samsung/matissewifi/ril/
 
 # Display
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
