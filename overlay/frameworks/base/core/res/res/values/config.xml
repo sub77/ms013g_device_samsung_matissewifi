@@ -22,9 +22,9 @@
     <!-- Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
 
-    <!-- Whether UI for multi user should be shown -->
+    <!-- Whether UI for multi user should be shown 
     <bool name="config_enableMultiUserUI">true</bool>
-
+-->
     <bool name="config_deskDockEnablesAccelerometer">false</bool>
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
