@@ -1,3 +1,4 @@
+#
 # Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,11 +12,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),ms013g)
-include $(call all-makefiles-under,$(LOCAL_PATH))
+ifeq ($(TARGET_DEVICE),matissewifi)
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 \
@@ -222,3 +224,4 @@ $(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9306; \
     $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_mbhc.bin)
 
 endif
+

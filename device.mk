@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/ms013g
+LOCAL_PATH := device/samsung/matissewifi
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Proprietary files
-$(call inherit-product, vendor/samsung/ms013g/ms013g-vendor.mk)
+$(call inherit-product, vendor/samsung/matissewifi/matissewifi-vendor.mk)
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
@@ -39,6 +39,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=2m \
     dalvik.vm.heapmaxfree=8m
 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true
+
+# System properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    af.resampler.quality=4 \
+    audio.offload.buffer.size.kb=32 \
+    audio.offload.gapless.enabled=false \
+    av.offload.enable=true \
+    av.streaming.offload.enable=true \
+    audio.offload.pcm.enable=true \
+    qcom.hw.aac.encoder=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196608
+
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
@@ -55,6 +75,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix
 
+
 # Audio configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
@@ -66,37 +87,16 @@ PRODUCT_PACKAGES += \
     camera.msm8226 \
     libxml2
 
-# CRDA
-PRODUCT_PACKAGES += \
-    crda \
-    linville.key.pub.pem \
-    regdbdump \
-    regulatory.bin
 
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8226 \
     gralloc.msm8226 \
     hwcomposer.msm8226 \
-    memtrack.msm8226 \
-    liboverlay
+    memtrack.msm8226 
+    
 
-# Ebtables
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes \
-    libebtc
 
-# FM
-#PRODUCT_PACKAGES += \
-#    FM2 \
-#    FMRecord \
-#    libqcomfm_jni \
-#    qcom.fmradio
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8226
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
@@ -113,20 +113,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sec_keyboard.idc:system/usr/idc/sec_keyboard.idc \
     $(LOCAL_PATH)/keylayout/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc
 
-# Keystore
-#PRODUCT_PACKAGES += \
-#    keystore.msm8226
-
-# Lights
+# GPS
 PRODUCT_PACKAGES += \
-    lights.msm8226
+    gps.msm8226 \
+    libloc_core
 
-# Media
+## Media
+##PRODUCT_COPY_FILES += \
+##    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+##    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+##    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+##    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml 
+
 PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
@@ -176,18 +175,17 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Power
+# Keystore
 PRODUCT_PACKAGES += \
-    power.msm8226
+    keystore.msm8226
 
-# QRNG
-#PRODUCT_PACKAGES += \
-#    qrngd \
-#    qrngp
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msm8226
+
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.crda.sh \
     init.qcom.bt.sh \
     init.qcom.fm.sh
 
@@ -204,12 +202,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8226.conf:system/etc/thermal-engine-8226.conf
 
-# Torch
-PRODUCT_PACKAGES += \
-    Torch
 
-# USB
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+# Default.prop overrides to get adb working at boot
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0 \
     persist.sys.usb.config=mtp
 
 PRODUCT_PACKAGES += \
@@ -217,27 +214,14 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
-    hostapd_default.conf \
-    hostapd.accept \
-    hostapd.deny \
-    wpa_supplicant \
-    wpa_supplicant.conf
-
-PRODUCT_PACKAGES += \
-    p2p_supplicant_overlay.conf \
-    wpa_supplicant_overlay.conf
-
-PRODUCT_PACKAGES += \
-    libcurl \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
-    wcnss_service
+    libnetcmdiface \
+    macloader
 
 PRODUCT_COPY_FILES += \
-    kernel/samsung/ms013g/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    kernel/samsung/ms013g/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+
 
 # Inherit from qcom-common
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)

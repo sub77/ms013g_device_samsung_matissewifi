@@ -65,26 +65,26 @@ on post-fs-data
     mkdir /tombstones/modem 0771 system system
 
 # import cne init file
-on post-fs
-    export LD_PRELOAD /vendor/lib/libNimsWrap.so
-    export MC_AUTH_TOKEN_PATH /efs
+# on post-fs
+#    export LD_PRELOAD /vendor/lib/libNimsWrap.so
+#    export MC_AUTH_TOKEN_PATH /efs
 
 on boot
-    start imsqmidaemon
-    insmod /system/lib/modules/adsprpc.ko
-    # Enable writing to led blink node from userspace
-    chown system system /sys/class/leds/red/blink
-    chown system system /sys/class/leds/green/blink
+#    start imsqmidaemon
+#    insmod /system/lib/modules/adsprpc.ko
+#    # Enable writing to led blink node from userspace
+#    chown system system /sys/class/leds/red/blink
+#    chown system system /sys/class/leds/green/blink
 
 #Start the qcom-system-daemon service
-service qcomsysd /system/bin/qcom-system-daemon
-    class main
+#service qcomsysd /system/bin/qcom-system-daemon
+#    class main
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
-    class main
-	user camera
-    group camera system inet input graphics
+#service qcamerasvr /system/bin/mm-qcamera-daemon
+#    class main
+#	user camera
+#    group camera system inet input graphics
 
 # Allow usb charging to be disabled persistently
 on property:persist.usb.chgdisabled=1
@@ -93,25 +93,25 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
    write /sys/class/power_supply/battery/charging_enabled 1
 
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
+#service time_daemon /system/bin/time_daemon
+#   class late_start
+#   user root
+#   group root
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
    user root
    disabled
 
 #start GNSS/Sensor interface daemon
-service gsiff_daemon /system/bin/gsiff_daemon
-   class late_start
-   user system
-   group gps net_raw
+#service gsiff_daemon /system/bin/gsiff_daemon
+#   class late_start
+#   user system
+#   group gps net_raw
 
-service thermal-engine /system/bin/thermal-engine
-   class main
-   user root
-   group root
+#service thermal-engine /system/bin/thermal-engine
+#   class main
+#   user root
+#   group root
 
 service qrngd /system/bin/qrngd -f
     class main
@@ -134,15 +134,15 @@ service qseecomd /system/bin/qseecomd
     user root
     group root
 
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
+#service audiod /system/bin/audiod
+#   class late_start
+#   user system
+#   group system
 
-service adsprpcd /system/bin/adsprpcd
-   class main
-   user media
-   group media
+#service adsprpcd /system/bin/adsprpcd
+#   class main
+#   user media
+#   group media
 
 service prepare-mobicore /system/bin/sh /system/bin/mobicore-presetup.sh
     class core
@@ -158,21 +158,21 @@ service run-mobicore /system/bin/sh /system/bin/mobicore-startup.sh
 on property:init.svc.bootanim=stopped
 	start run-mobicore
 
-service imsqmidaemon /system/bin/imsqmidaemon
-    class main
-    user system
-    group radio net_raw log qcom_diag
-    disabled
+#service imsqmidaemon /system/bin/imsqmidaemon
+#    class main
+#    user system
+#    group radio net_raw log qcom_diag
+#    disabled
 
 # imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
-service imsdatadaemon /system/bin/imsdatadaemon
-    class main
-    user root
-    group system wifi radio net_raw log qcom_diag net_admin
-    disabled
+#service imsdatadaemon /system/bin/imsdatadaemon
+#    class main
+#    user root
+#    group system wifi radio net_raw log qcom_diag net_admin
+#    disabled
 
-on property:sys.ims.QMI_DAEMON_STATUS=1
-    start imsdatadaemon
+#on property:sys.ims.QMI_DAEMON_STATUS=1
+#    start imsdatadaemon
 
 service ims_rtp_daemon /system/bin/ims_rtp_daemon
    class main
@@ -183,11 +183,11 @@ service ims_rtp_daemon /system/bin/ims_rtp_daemon
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
 
-service wcnss-service /system/bin/wcnss_service
-   class late_start
-   user system
-   group system wifi
-   oneshot
+#service wcnss-service /system/bin/wcnss_service
+#   class late_start
+#   user system
+#   group system wifi
+#   oneshot
 
 # service ppd /system/bin/mm-pp-daemon
 #     class late_start
@@ -198,12 +198,12 @@ service wcnss-service /system/bin/wcnss_service
 # on property:init.svc.surfaceflinger=stopped
 #     stop ppd
 # SecEDS
-service TvoutService_C /system/bin/bintvoutservice
-     class main
-     user system
-     group graphics
-on property:ro.SecEDS.enable=false
-    stop TvoutService_C
+#service TvoutService_C /system/bin/bintvoutservice
+#     class main
+#     user system
+#     group graphics
+#on property:ro.SecEDS.enable=false
+#    stop TvoutService_C
 
 # Secure Storage startup
 service secure_storage /system/bin/secure_storage_daemon
