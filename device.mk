@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Proprietary files
-$(call inherit-product, vendor/samsung/matissewifi/matissewifi-vendor.mk)
+$(call inherit-product, vendor/samsung/ms013g/ms013g-vendor.mk)
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
